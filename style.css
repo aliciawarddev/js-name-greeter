@@ -1,0 +1,208 @@
+/* CSS Custom Properties for consistent theming */
+:root {
+    /* MCM Color Palette - muted but sophisticated */
+    --primary-color: #D2691E;      /* Warm burnt sienna */
+    --secondary-color: #4A7C7E;    /* Sage green-blue */
+    --accent-color: #E6B31A;       /* Muted gold */
+    --background-light: #FAF7F0;   /* Warm off-white */
+    --text-dark: #2C2C2C;          /* Soft black */
+    --text-light: #FFFFFF;          /* Pure white */
+    --shadow-color: rgba(44, 44, 44, 0.1);
+    --border-radius: 8px;           /* Subtle rounded corners */
+    --transition-speed: 0.3s;       /* Smooth animations */
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+        body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* Subtle geometric pattern background */
+    background-image: 
+        linear-gradient(45deg, transparent 48%, var(--shadow-color) 49%, var(--shadow-color) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, var(--shadow-color) 49%, var(--shadow-color) 51%, transparent 52%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+/* Main container card */
+.container {
+    background: var(--text-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px var(--shadow-color);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Main heading */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+}
+
+        /* Input group styling */
+.input-group {
+    margin-bottom: 25px;
+}
+
+/* Input field styling */
+input[type="text"] {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    transition: all var(--transition-speed) ease;
+    outline: none;
+}
+
+/* Input focus state */
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    background-color: var(--text-light);
+    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+/* Input placeholder */
+input[type="text"]::placeholder {
+    color: rgba(44, 44, 44, 0.5);
+    font-style: italic;
+}
+
+/* Button styling */
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--text-light);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+    text-transform: uppercase;
+}
+
+/* Button hover state */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
+}
+
+/* Button active state */
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(210, 105, 30, 0.3);
+}
+
+/* Greeting display area */
+#greeting {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-speed) ease;
+}
+
+/* Greeting visible state */
+#greeting.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"] {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    #greeting {
+        font-size: 1.4rem;
+        min-height: 60px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    #greeting {
+        font-size: 1.2rem;
+    }
+}
+
+/* Error state for empty input */
+input.error {
+    border-color: #E74C3C;
+    animation: shake 0.5s;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
