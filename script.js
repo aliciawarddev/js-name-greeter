@@ -1,7 +1,7 @@
 // Get references to HTML elements
 const nameInput = document.getElementById('nameInput');         // The input field where user types their name
 const greetButton = document.getElementById('greetButton');     // The button that triggers the greeting
-const greetingDiv = document.getElementById('greetingDiv');     // The div where the greeting will be displayed
+const greetingDiv = document.getElementById('greeting');     // The div where the greeting will be displayed
 
 // Function to create and display the greeting
 function generateGreeting() {
@@ -29,6 +29,12 @@ function handleEnterKey(event) {
     if (event.key === 'Enter') {    // Check if the pressed key is Enter
         generateGreeting();         // Call the greeting function
     }
+}
+
+// Reset greeting
+function resetGreeting() {
+    greetingDiv.textContent = '';
+    greetingDiv.classList.remove('show');
 }
 
 // Add event listeners to make the app interactive
