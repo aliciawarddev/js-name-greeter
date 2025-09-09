@@ -1,7 +1,8 @@
 /* CSS Custom Properties for consistent theming */
 :root {
     /* MCM Color Palette - muted but sophisticated */
-    --primary-color: #D2691E;      /* Warm burnt sienna */
+    --primary-color: #D2691E;   /* Warm burnt sienna */
+    --primary-dark: #BB5E1B;
     --secondary-color: #4A7C7E;    /* Sage green-blue */
     --accent-color: #E6B31A;       /* Muted gold */
     --background-light: #FAF7F0;   /* Warm off-white */
@@ -10,6 +11,7 @@
     --shadow-color: rgba(44, 44, 44, 0.1);
     --border-radius: 8px;           /* Subtle rounded corners */
     --transition-speed: 0.3s;       /* Smooth animations */
+    --grey-light: #E0E0E0;
 }
 
 /* Reset and base styles */
@@ -39,22 +41,24 @@ body {
     background: var(--text-light);
     border-radius: var(--border-radius);
     box-shadow: 0 10px 40px var(--shadow-color);
-    padding: 40px;
+    padding: 50px;
     max-width: 500px;
     width: 100%;
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
 }
 
 /* Main heading */
 h1 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 10px;
     letter-spacing: -0.5px;
+    text-transform: uppercase;
 }
 
 .subtitle {
@@ -65,7 +69,12 @@ h1 {
     margin-bottom: 30px;
 }
 
-        /* Input group styling */
+/* Input group styling */
+.input-group {
+    margin-bottom: 25px;
+}
+
+/* Input group styling */
 .input-group {
     margin-bottom: 25px;
 }
@@ -75,7 +84,7 @@ input[type="text"] {
     width: 100%;
     padding: 15px 20px;
     font-size: 1rem;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Inter', sans-serif;  /* Same as body text */
     border: 2px solid var(--secondary-color);
     border-radius: var(--border-radius);
     background-color: var(--background-light);
@@ -86,7 +95,7 @@ input[type="text"] {
 
 /* Input focus state */
 input[type="text"]:focus {
-    border-color: var(--primary-color);
+    border-color: var(--secondary-color);
     background-color: var(--text-light);
     box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
 }
@@ -110,32 +119,33 @@ button {
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all var(--transition-speed) ease;
-    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+    box-shadow: 0 2px 6px rgba(210, 105, 30, 0.25);
     text-transform: uppercase;
 }
 
 /* Button hover state */
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
+    transform: translateY(-3px);
+    background-color: var(--primary-dark);
+    box-shadow: 0 3px 8px rgba(210, 105, 30, 0.3);
 }
 
 /* Button active state */
 button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(210, 105, 30, 0.3);
+     box-shadow: 0 1px 4px rgba(210, 105, 30, 0.25);;
 }
 
 /* Greeting display area */
 #greeting {
     margin-top: 30px;
     padding: 20px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    background: var(--secondary-color);  /* Solid sage green-blue */
     color: var(--text-light);
     border-radius: var(--border-radius);
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 400;
     min-height: 70px;
     display: flex;
     align-items: center;
@@ -195,12 +205,5 @@ button:active {
 /* Error state for empty input */
 input.error {
     border-color: #E74C3C;
-    animation: shake 0.5s;
-}
-
-/* Shake animation for errors */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
+    background-color: #FDF0F3;
 }
