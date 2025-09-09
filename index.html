@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Greeter - MCM Style</title>
+    
+    <!-- Google Fonts for Oswald and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Link to CSS-->
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main container-->
+     <div class="container">
+        <!-- App header-->
+         <h1>Hello There!</h1>
+         <p class="subtitle">Let's get to know each other</p>
+
+        <!-- Input section -->
+         <div class="input-group">
+            <input
+                input="text"
+                id="nameInput"
+                placeholder="Enter your name here..."
+                aria-label="Name input field"
+            >
+         </div>
+
+        <!-- Action button -->
+         <button id="greetButton" aria-label="Generate greeting">
+            Say Hello
+         </button>
+        
+        <!-- Greeting display area (initially hidden)-->
+         <div id="greeting" aria-live="polite"></div>
+     </div>
+
+    <!-- Link to JS Script-->
+     <script src="script.js"></script>
+</body>
